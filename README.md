@@ -1,4 +1,4 @@
-# 📖 القراءات السبع — رحلة للأطفال     (The Seven Readings — A Journey for Kids)
+# 📖 القراءات السبع — رحلة للأطفال     (The Seven Qiraat — Kids Journey)
 An interactive single-page web application (SPA) designed to introduce children to the science of Quranic Qiraat (The Seven & Ten Qiraat) through engaging visuals and interactive learning activities. Fully in arabic language
 
 Developed for the course **QIRAAT AMALI II (QQQ3163)**. 
