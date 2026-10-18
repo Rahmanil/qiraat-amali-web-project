@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>القراءات السبع — رحلة للأطفال</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Baloo+Bhaijaan+2:wght@500;700;800&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B4B43;
+    --ink-2:#0F332D;
+    --gold:#E8A94A;
+    --cream:#FBF6EC;
+    --paper:#FFFDF7;
+    --coral:#D6553A;
+    --teal-soft:#6FA8A0;
+    --line: rgba(27,75,67,0.15);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--cream);
+    background-image:
+      radial-gradient(circle at 10% 10%, rgba(232,169,74,0.08), transparent 40%),
+      radial-gradient(circle at 90% 20%, rgba(111,168,160,0.10), transparent 40%);
+    font-family:'Cairo', sans-serif;
+    color:var(--ink-2);
+    direction:rtl;
+  }
+  .wrap{max-width:1000px;margin:0 auto;padding:0 20px 60px;}
+
+  /* ---- Top navigation ---- */
+  .topnav{
+    position:sticky; top:0; z-index:80;
+    background:rgba(251,246,236,0.94);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    padding:10px 16px;
+  }
+  .topnav-inner{
+    max-width:1000px; margin:0 auto; position:relative;
+    display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+  }
+  .brand{
+    font-family:'Aref Ruqaa', serif; color:var(--ink); font-weight:700; font-size:1.2rem;
+    display:flex; align-items:center; gap:6px; flex:0 0 auto; cursor:pointer;
+    transition:opacity 0.15s ease;
+  }
+  .brand:hover{ opacity:0.75; }
+  .nav-links{ display:flex; gap:4px; flex-wrap:wrap; justify-content:center; flex:1 1 auto; }
+  .nav-btn{
+    font-family:'Baloo Bhaijaan 2', sans-serif; font-weight:700; font-size:0.82rem;
+    background:none; border:1.5px solid transparent; color:var(--ink);
+    padding:7px 13px; border-radius:999px; cursor:pointer; transition:all .15s ease;
+    opacity:0.65; white-space:nowrap;
+  }
+  .nav-btn:hover{ opacity:1; border-color:var(--line); }
+  .nav-btn.active{ background:var(--ink); color:var(--cream); opacity:1; }
+  .burger-btn{
+    display:none;
+    width:40px; height:40px; border-radius:12px; border:2px solid var(--line);
+    background:var(--paper); cursor:pointer; font-size:1.15rem;
+    align-items:center; justify-content:center;
+    transition:all .15s ease; flex:0 0 auto;
+  }
+  .burger-btn:hover{ border-color:var(--gold); }
+  .burger-btn.open{ background:var(--ink); color:var(--cream); border-color:var(--ink); }
+  .sound-toggle{
+    width:40px; height:40px; border-radius:50%; border:2px solid var(--line);
+    background:var(--paper); cursor:pointer; font-size:1.05rem;
+    display:flex; align-items:center; justify-content:center;
+    transition:all .15s ease; flex:0 0 auto;
+  }
+  .sound-toggle.on{ background:var(--teal-soft); border-color:var(--teal-soft); color:#fff; }
+  .sound-toggle:active{ transform:scale(0.92); }
+
+  /* ---- Pages ---- */
+  .page{ display:none; }
+  .page.active{ display:block; animation:pageIn .4s ease; }
+  @keyframes pageIn{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+
+  /* ---- Hero ---- */
+  .hero{
+    position:relative;
+    text-align:center;
+    padding:56px 20px 70px;
+    overflow:hidden;
+  }
+  .hero::before, .hero::after{
+    content:"";
+    position:absolute;
+    top:14px; width:70px; height:70px;
+    border:3px solid var(--gold);
+    border-radius:50%;
+    opacity:0.35;
+  }
+  .hero::before{ right:8%; }
+  .hero::after{ left:8%; }
+  .hero .eyebrow{
+    font-family:'Baloo Bhaijaan 2', sans-serif;
+    font-weight:700;
+    color:var(--coral);
+    letter-spacing:1px;
+    font-size:1.05rem;
+    margin-bottom:6px;
+  }
+  .hero h1{
+    font-family:'Aref Ruqaa', serif;
+    font-size:clamp(2.6rem, 7vw, 4.6rem);
+    color:var(--ink);
+    margin:0 0 10px;
+    line-height:1.15;
+  }
+  .hero p{
+    font-size:1.15rem;
+    max-width:560px;
+    margin:0 auto;
+    color:var(--ink-2);
+    opacity:0.85;
+  }
+  .ornament-row{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    margin-top:28px;
+  }
+  .ornament-row svg{ width:34px; height:34px; }
+  .ornament-line{ flex:0 0 90px; height:2px; background:linear-gradient(90deg, transparent, var(--gold), transparent); }
+
+  /* ---- Section headers ---- */
+  section{ margin-top:64px; }
+  .page > section:first-child{ margin-top:40px; }
+  .sec-head{ text-align:center; margin-bottom:34px; }
+  .sec-head .tag{
+    display:inline-block;
+    font-family:'Baloo Bhaijaan 2', sans-serif;
+    font-weight:700;
+    background:var(--ink);
+    color:var(--cream);
+    padding:5px 18px;
+    border-radius:999px;
+    font-size:0.95rem;
+    margin-bottom:12px;
+  }
+  .sec-head h2{
+    font-family:'Aref Ruqaa', serif;
+    font-size:clamp(1.8rem,4vw,2.6rem);
+    color:var(--ink);
+    margin:0 0 8px;
+  }
+  .sec-head p{ opacity:0.8; max-width:600px; margin:0 auto; }
+
+  /* ---- Imam cards ---- */
+  .imam-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(210px,1fr));
+    gap:20px;
+  }
+  .flip-card{ perspective:1200px; height:310px; cursor:pointer; }
+  .flip-inner{
+    position:relative; width:100%; height:100%;
+    transition:transform 0.6s cubic-bezier(.4,.2,.2,1);
+    transform-style:preserve-3d;
+  }
+  .flip-card.flipped .flip-inner{ transform:rotateY(180deg); }
+  .face{
+    position:absolute; inset:0;
+    backface-visibility:hidden;
+    border-radius:18px;
+    padding:20px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+  }
+  .face.front{
+    background:var(--paper);
+    border:2px solid var(--line);
+    box-shadow:0 6px 18px rgba(27,75,67,0.08);
+  }
+  .face.front::before{
+    content:"";
+    position:absolute; inset:8px;
+    border:1.5px dashed var(--gold);
+    border-radius:12px;
+    opacity:0.55;
+    pointer-events:none;
+  }
+  .face.front .num{
+    font-family:'Baloo Bhaijaan 2';
+    font-weight:800;
+    color:var(--gold);
+    font-size:0.95rem;
+    margin-bottom:6px;
+  }
+  .face.front .name{
+    font-family:'Aref Ruqaa', serif;
+    font-size:1.55rem;
+    color:var(--ink);
+    margin-bottom:4px;
+  }
+  .face.front .city{
+    font-size:0.95rem;
+    color:var(--coral);
+    font-weight:600;
+  }
+  .face.front .hint{
+    margin-top:14px;
+    font-size:0.8rem;
+    opacity:0.55;
+  }
+  .face.back{
+    background:var(--ink);
+    color:var(--cream);
+    transform:rotateY(180deg);
+  }
+  .face.back .name{ font-family:'Aref Ruqaa'; font-size:1.3rem; color:var(--gold); margin-bottom:8px;}
+  .face.back .students-label{
+    font-family:'Baloo Bhaijaan 2';
+    font-size:0.85rem;
+    opacity:0.75;
+    margin-bottom:6px;
+  }
+  .face.back .students{ font-size:1.05rem; line-height:1.8; }
+  .face.back .students b{ color:var(--teal-soft); }
+  .face.back .bio-line{ font-size:0.78rem; opacity:0.75; margin-bottom:10px; line-height:1.6; }
+  .face.back .fact-line{ font-size:0.78rem; opacity:0.85; margin-top:12px; line-height:1.7; border-top:1px solid rgba(251,246,236,0.25); padding-top:10px; }
+
+  /* ---- Examples ---- */
+  .example-card{
+    background:var(--paper);
+    border:2px solid var(--line);
+    border-radius:18px;
+    padding:24px 26px;
+    margin-bottom:20px;
+  }
+  .example-top{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
+  }
+  .example-top .verse-ref{
+    font-family:'Baloo Bhaijaan 2';
+    font-weight:700;
+    color:var(--teal-soft);
+    font-size:0.9rem;
+  }
+  .example-word{
+    font-family:'Aref Ruqaa', serif;
+    font-size:2.1rem;
+    color:var(--ink);
+    text-align:center;
+    margin:14px 0;
+  }
+  .variant{
+    background:var(--cream);
+    border-radius:12px;
+    padding:14px 16px;
+    text-align:center;
+    border:1.5px solid var(--line);
+  }
+  .variant .v-word{ font-family:'Aref Ruqaa'; font-size:1.5rem; color:var(--ink); }
+  .variant .v-who{ font-size:0.85rem; color:var(--coral); font-weight:700; margin-top:6px; }
+
+  /* ---- Quiz ---- */
+  .quiz-box{
+    background:var(--paper);
+    border:2px solid var(--line);
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+  }
+  .quiz-progress{
+    font-family:'Baloo Bhaijaan 2';
+    color:var(--teal-soft);
+    font-weight:700;
+    margin-bottom:6px;
+  }
+  .quiz-q{
+    font-family:'Aref Ruqaa';
+    font-size:1.5rem;
+    color:var(--ink);
+    margin:10px 0 22px;
+  }
+  .quiz-opts{
+    display:grid;
+    gap:12px;
+    grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
+  }
+  .opt-btn{
+    font-family:'Cairo';
+    font-weight:600;
+    background:var(--cream);
+    border:2px solid var(--line);
+    border-radius:12px;
+    padding:14px;
+    font-size:1rem;
+    cursor:pointer;
+    transition:all 0.15s ease;
+  }
+  .opt-btn:hover{ border-color:var(--gold); }
+  .opt-btn.correct{ background:#dff2ea; border-color:#4f9d7c; color:#1e5c40; }
+  .opt-btn.wrong{ background:#fbe2de; border-color:var(--coral); color:#8a3320; }
+  .quiz-feedback{
+    margin-top:16px;
+    min-height:26px;
+    font-weight:700;
+    font-family:'Baloo Bhaijaan 2';
+  }
+  .quiz-next{
+    margin-top:18px;
+    display:none;
+    font-family:'Baloo Bhaijaan 2';
+    background:var(--ink);
+    color:var(--cream);
+    border:none;
+    border-radius:999px;
+    padding:10px 28px;
+    font-size:1rem;
+    cursor:pointer;
+  }
+  .quiz-done{
+    display:none;
+  }
+  .quiz-score{
+    font-family:'Aref Ruqaa';
+    font-size:2rem;
+    color:var(--ink);
+  }
+  .star-row{ font-size:1.8rem; margin:10px 0; }
+
+  /* ---- Intro / basics & history ---- */
+  .intro-story{
+    background:var(--paper);
+    border:2px solid var(--line);
+    border-radius:20px;
+    padding:26px 28px;
+    margin-bottom:26px;
+    line-height:2;
+    font-size:1.05rem;
+  }
+  .intro-story b{ color:var(--coral); }
+
+  .timeline{
+    position:relative;
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:0;
+    margin:30px 0 36px;
+    padding-top:4px;
+  }
+  .timeline-line{
+    position:absolute;
+    top:26px; left:10%; right:10%;
+    height:2px;
+    background:var(--gold);
+    opacity:0.5;
+    z-index:1;
+  }
+  .t-step{
+    text-align:center;
+    position:relative;
+    padding:0 8px;
+    cursor:pointer;
+  }
+  .t-step .t-dot{
+    width:44px; height:44px;
+    margin:0 auto 10px;
+    border-radius:50%;
+    background:var(--ink);
+    color:var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Baloo Bhaijaan 2'; font-weight:800; font-size:1.1rem;
+    position:relative; z-index:2;
+    transition:transform 0.15s ease, background 0.2s ease;
+  }
+  .t-step:hover .t-dot{ transform:scale(1.08); }
+  .t-step.active .t-dot{ background:var(--coral); color:#fff; }
+  .t-step.active .t-title{ color:var(--coral); }
+  .t-step .t-title{ font-weight:700; font-size:0.95rem; color:var(--ink); margin-bottom:4px; transition:color 0.2s ease; }
+  .t-step .t-desc{ font-size:0.8rem; opacity:0.75; }
+
+  .timeline-detail{
+    background:var(--paper);
+    border:2px solid var(--line);
+    border-radius:18px;
+    padding:24px 26px;
+    text-align:center;
+    margin-bottom:26px;
+    min-height:60px;
+  }
+  .timeline-detail-title{ font-family:'Aref Ruqaa'; font-size:1.35rem; color:var(--ink); margin-bottom:8px; }
+  .timeline-detail-text{ font-size:0.95rem; line-height:1.9; opacity:0.85; }
+
+  .faq-list{ display:flex; flex-direction:column; gap:12px; }
+  .faq-item{
+    background:var(--paper);
+    border:2px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+  }
+  .faq-q{
+    width:100%;
+    text-align:right;
+    background:none;
+    border:none;
+    padding:16px 20px;
+    font-family:'Baloo Bhaijaan 2';
+    font-weight:700;
+    font-size:1.02rem;
+    color:var(--ink);
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+  }
+  .faq-q .arrow{ transition:transform 0.25s ease; color:var(--coral); font-size:1.1rem; flex:0 0 auto; }
+  .faq-item.open .faq-q .arrow{ transform:rotate(180deg); }
+  .faq-a{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.3s ease;
+    padding:0 20px;
+    font-size:0.98rem;
+    line-height:1.9;
+    opacity:0.9;
+  }
+  .faq-item.open .faq-a{ max-height:260px; padding-bottom:18px; }
+
+  /* ---- Audio button (shared) ---- */
+  .audio-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--teal-soft);
+    color:#fff;
+    border:none;
+    border-radius:999px;
+    padding:8px 18px;
+    font-family:'Baloo Bhaijaan 2';
+    font-weight:700;
+    font-size:0.92rem;
+    cursor:pointer;
+    transition:transform 0.15s ease, background 0.2s ease;
+  }
+  .audio-btn:hover{ background:#5a938a; transform:translateY(-1px); }
+  .audio-btn:active{ transform:scale(0.96); }
+  .audio-btn.playing{ background:var(--coral); }
+  .audio-note{
+    text-align:center;
+    font-size:0.78rem;
+    opacity:0.55;
+    margin-top:6px;
+  }
+
+  /* ---- Example steps (clarified activity) ---- */
+  .example-steps{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    margin:6px 0 4px;
+    flex-wrap:wrap;
+  }
+  .step-badge{
+    font-family:'Baloo Bhaijaan 2';
+    font-weight:700;
+    font-size:0.85rem;
+    color:var(--ink);
+    opacity:0.45;
+  }
+  .step-badge.active{ opacity:1; color:var(--coral); }
+  .example-instructions{
+    text-align:center;
+    font-size:0.85rem;
+    opacity:0.65;
+    margin-top:2px;
+    margin-bottom:10px;
+  }
+  .compare-btn{
+    display:flex;
+    margin:14px auto 4px;
+    font-family:'Baloo Bhaijaan 2';
+    font-weight:700;
+    background:var(--coral);
+    color:#fff;
+    border:none;
+    border-radius:999px;
+    padding:12px 30px;
+    font-size:1rem;
+    cursor:pointer;
+    align-items:center;
+    gap:8px;
+    transition:transform 0.15s ease, background 0.2s ease;
+  }
+  .compare-btn:hover{ background:#b8452e; transform:translateY(-1px); }
+  .compare-btn:disabled{ opacity:0.4; cursor:not-allowed; transform:none; }
+  .variants{
+    display:none;
+    margin-top:18px;
+    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    gap:12px;
+    animation:fadeIn 0.4s ease;
+  }
+  @keyframes fadeIn{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+  .example-card.open .variants{ display:grid; }
+  .example-card.open .compare-btn{ display:none; }
+  .variant{ display:flex; flex-direction:column; align-items:center; gap:8px; }
+
+  /* ---- Map / journey page ---- */
+  .city-row{
+    display:flex; flex-wrap:wrap; justify-content:center; gap:16px; margin-bottom:30px;
+  }
+  .city-stop{
+    background:var(--paper); border:2px solid var(--line); border-radius:16px;
+    padding:20px 18px; text-align:center; cursor:pointer; min-width:140px;
+    transition:all .15s ease;
+  }
+  .city-stop:hover{ border-color:var(--gold); transform:translateY(-3px); }
+  .city-stop.active{ background:var(--ink); border-color:var(--ink); }
+  .city-stop.active .city-name{ color:var(--cream); }
+  .city-icon{ font-size:2rem; margin-bottom:8px; }
+  .city-name{ font-family:'Baloo Bhaijaan 2'; font-weight:700; color:var(--ink); font-size:0.92rem; }
+  .city-count{ font-size:0.75rem; opacity:0.6; margin-top:2px; }
+  .city-stop.active .city-count{ color:var(--cream); opacity:0.75; }
+  .city-detail{
+    background:var(--paper); border:2px solid var(--line); border-radius:18px;
+    padding:28px; text-align:center; min-height:110px;
+  }
+  .city-detail-title{ font-family:'Aref Ruqaa'; font-size:1.6rem; color:var(--ink); margin-bottom:14px; }
+  .city-detail-hint{ opacity:0.6; font-size:0.95rem; }
+  .city-imam-chip{
+    display:inline-block; background:var(--cream); border:1.5px solid var(--gold); border-radius:999px;
+    padding:8px 18px; margin:5px; font-family:'Aref Ruqaa'; font-size:1.1rem; color:var(--ink);
+  }
+
+  /* ---- Matching game page ---- */
+  .game-progress{ text-align:center; font-family:'Baloo Bhaijaan 2'; color:var(--teal-soft); font-weight:700; margin-bottom:18px; }
+  .game-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:14px; max-width:640px; margin:0 auto 22px; }
+  .game-col-label{ text-align:center; font-family:'Baloo Bhaijaan 2'; font-weight:700; opacity:0.6; font-size:0.85rem; margin-bottom:4px; }
+  .game-item{
+    font-family:'Cairo'; font-weight:600; background:var(--paper); border:2px solid var(--line);
+    border-radius:12px; padding:13px 10px; text-align:center; cursor:pointer; font-size:0.95rem;
+    transition:all .15s ease;
+  }
+  .game-item.imam-item{ font-family:'Aref Ruqaa'; font-size:1.15rem; }
+  .game-item.selected{ border-color:var(--gold); background:#fff3de; }
+  .game-item.matched{ background:#dff2ea; border-color:#4f9d7c; color:#1e5c40; cursor:default; opacity:0.75; }
+  .game-item.shake{ animation:shake .35s ease; border-color:var(--coral); }
+  @keyframes shake{ 0%,100%{transform:translateX(0);} 25%{transform:translateX(-6px);} 75%{transform:translateX(6px);} }
+  .game-done{ display:none; text-align:center; font-family:'Aref Ruqaa'; font-size:1.4rem; color:var(--ink); margin-top:10px; }
+  .game-done.show{ display:block; animation:fadeIn .5s ease; }
+  .game-reset{
+    display:block; margin:20px auto 0; font-family:'Baloo Bhaijaan 2'; font-weight:700;
+    background:none; border:2px solid var(--line); color:var(--ink); border-radius:999px;
+    padding:9px 22px; cursor:pointer; transition:all .15s ease;
+  }
+  .game-reset:hover{ border-color:var(--gold); }
+
+  /* ---- Certificate page ---- */
+  .cert-form{ max-width:420px; margin:0 auto 30px; text-align:center; }
+  .cert-input{
+    width:100%; padding:12px 16px; border-radius:12px; border:2px solid var(--line);
+    font-family:'Cairo'; font-size:1rem; margin-bottom:14px; text-align:center; background:var(--paper);
+  }
+  .cert-input:focus{ outline:none; border-color:var(--gold); }
+  .cert-btn{
+    font-family:'Baloo Bhaijaan 2'; font-weight:700; background:var(--coral); color:#fff;
+    border:none; border-radius:999px; padding:12px 30px; font-size:1rem; cursor:pointer;
+    transition:all .15s ease;
+  }
+  .cert-btn:hover{ background:#b8452e; }
+  .certificate{
+    max-width:640px; margin:0 auto; background:var(--paper); border:3px double var(--gold); border-radius:20px;
+    padding:50px 40px; text-align:center; position:relative; display:none;
+  }
+  .certificate.show{ display:block; animation:fadeIn .5s ease; }
+  .certificate .cert-eyebrow{ font-family:'Baloo Bhaijaan 2'; color:var(--coral); font-weight:700; letter-spacing:2px; font-size:0.85rem; }
+  .certificate h2{ font-family:'Aref Ruqaa'; font-size:2.2rem; color:var(--ink); margin:8px 0; }
+  .certificate .cert-name{
+    font-family:'Aref Ruqaa'; font-size:2.6rem; color:var(--gold); margin:18px 0;
+    border-bottom:2px solid var(--line); display:inline-block; padding-bottom:10px;
+  }
+  .certificate .cert-desc{ max-width:480px; margin:0 auto 20px; opacity:.85; }
+  .certificate .cert-score{ font-family:'Baloo Bhaijaan 2'; color:var(--teal-soft); font-weight:700; margin-bottom:20px; }
+  .certificate .cert-date{ font-size:.85rem; opacity:.55; }
+  .print-btn{
+    margin-top:24px; font-family:'Baloo Bhaijaan 2'; font-weight:700; background:var(--ink); color:var(--cream);
+    border:none; border-radius:999px; padding:10px 26px; cursor:pointer;
+  }
+
+  footer{
+    text-align:center;
+    margin-top:70px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    color:var(--ink);
+    opacity:0.7;
+    font-size:0.95rem;
+  }
+
+  @media print{
+    .topnav, footer{ display:none !important; }
+    .page{ display:none !important; }
+    .page.active{ display:block !important; }
+    .cert-form{ display:none !important; }
+    body{ background:#fff; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .flip-inner{ transition:none; }
+  }
+
+  @media (max-width:760px){
+    .game-wrap{ grid-template-columns:1fr 1fr; gap:8px; }
+    .t-step .t-title{ font-size:0.78rem; }
+    .t-step .t-desc{ display:none; }
+    .t-step{ padding:0 3px; }
+
+    .burger-btn{ display:flex; }
+    .nav-links{
+      display:none;
+      position:absolute;
+      top:calc(100% + 10px);
+      left:0; right:0;
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:10px;
+      flex-direction:column;
+      gap:4px;
+      box-shadow:0 12px 28px rgba(15,51,45,0.18);
+      z-index:90;
+    }
+    .nav-links.open{ display:flex; }
+    .nav-links .nav-btn{ width:100%; padding:11px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="topnav-inner">
+    <div class="brand" id="brandHome">📖 القراءات السبع</div>
+    <div class="nav-links" id="navLinks">
+      <button class="nav-btn" data-target="home">الرئيسية</button>
+      <button class="nav-btn" data-target="imams7">القرّاء السبعة</button>
+      <button class="nav-btn" data-target="imams10">القرّاء العشرة</button>
+      <button class="nav-btn" data-target="examples">استمع وقارن</button>
+      <button class="nav-btn" data-target="map">خريطة الرحلة</button>
+      <button class="nav-btn" data-target="game">لعبة المطابقة</button>
+      <button class="nav-btn" data-target="faq">أسئلة شائعة</button>
+      <button class="nav-btn" data-target="quiz">الاختبار</button>
+      <button class="nav-btn" data-target="certificate">شهادتي</button>
+    </div>
+    <button class="burger-btn" id="burgerBtn" aria-label="القائمة" aria-expanded="false">☰</button>
+    <button class="sound-toggle" id="soundToggle" title="تشغيل/إيقاف الأصوات">🔈</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ================= PAGE: HOME ================= -->
+  <div class="page active" id="page-home">
+
+    <div class="hero">
+      <div class="eyebrow">QIRAAT AMALI II QQQ3163</div> <br/>
+      <h1>القُرّاء السبعة</h1>
+      <p>هيا نتعرّف سويًّا على العلماء الذين حفظوا لنا طريقة قراءة القرآن الكريم، وعلى تلاميذهم الذين نقلوا عنهم هذا العلم الجليل جيلًا بعد جيل.</p>
+      <div class="ornament-row">
+        <div class="ornament-line"></div>
+        <svg viewBox="0 0 40 40"><polygon points="20,2 25,15 38,15 27,23 31,36 20,28 9,36 13,23 2,15 15,15" fill="none" stroke="#E8A94A" stroke-width="2"/></svg>
+        <div class="ornament-line"></div>
+      </div>
+    </div>
+
+    <section>
+      <div class="sec-head">
+        <span class="tag">قبل أن نبدأ</span>
+        <h2>ما هي القراءات؟ ولماذا هي مُتعدّدة؟</h2>
+        <p>كل معلومة جميلة تحتاج إلى قصّة... فلنسمع قصّة القراءات من البداية.</p>
+      </div>
+
+      <div class="intro-story">
+        عندما نزل القرآن الكريم على النبيّ محمد ﷺ، أراد الله أن ييسّر على الناس حفظه وتلاوته، فقد كانت قبائل العرب تتحدّث بلهجات مختلفة قليلًا. لهذا أخبر النبيّ ﷺ أصحابه أنّ القرآن <b>«أُنزِل على سبعة أَحرُف»</b>، أي بطرق نطق متعدّدة، كلّها صحيحة ونزل بها الوحي، لتسهّل على كل قبيلة قراءته بالطريقة الأقرب إلى لسانها.
+        <br><br>
+        هذه الطرق المختلفة لم تُخترع من عند أحد، بل رواها الصحابة عن النبيّ ﷺ، ثم نقلها التابعون عن الصحابة، جيلًا بعد جيل، بسلسلة متصلة تسمّى <b>«السند»</b>، حتى وصلت إلينا اليوم محفوظة تمامًا كما نزلت.
+        <br><br>
+        ومع مرور الزمن، برز عدد من الأئمة الكبار في مدن مختلفة، اشتهروا بإتقانهم وضبطهم لهذه القراءات، فجمع العلماء من بينهم <b>سبعة أئمة</b> اشتهرت قراءاتهم وانتشرت، ثم أضاف العلماء لاحقًا <b>ثلاثة أئمة آخرين</b> لتكتمل «القراءات العشر» المتواترة.
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+        <div class="t-step">
+          <div class="t-dot">١</div>
+          <div class="t-title">النبيّ ﷺ</div>
+          <div class="t-desc">تلقّى الوحي من جبريل عليه السلام</div>
+        </div>
+        <div class="t-step">
+          <div class="t-dot">٢</div>
+          <div class="t-title">الصحابة</div>
+          <div class="t-desc">حفظوا القرآن مباشرة عن النبيّ ﷺ</div>
+        </div>
+        <div class="t-step">
+          <div class="t-dot">٣</div>
+          <div class="t-title">التابعون</div>
+          <div class="t-desc">تعلّموا القراءة من الصحابة</div>
+        </div>
+        <div class="t-step">
+          <div class="t-dot">٤</div>
+          <div class="t-title">الأئمة العشرة</div>
+          <div class="t-desc">جمعوا القراءات المشهورة الصحيحة</div>
+        </div>
+        <div class="t-step">
+          <div class="t-dot">٥</div>
+          <div class="t-title">الرواة</div>
+          <div class="t-desc">تلاميذهم الذين نقلوها إلينا</div>
+        </div>
+      </div>
+
+      <div class="timeline-detail" id="timelineDetail">
+        <div class="timeline-detail-title">اضغط على أي خطوة أعلاه 👆</div>
+        <div class="timeline-detail-text">ستظهر هنا قصة أكثر تفصيلاً عن كل مرحلة من رحلة نقل القراءات.</div>
+      </div>
+
+      <div style="text-align:center;">
+        <button class="compare-btn" style="display:inline-flex;" onclick="goToPage('imams7')">هيّا نتعرّف على القرّاء ←</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= PAGE: IMAMS 7 ================= -->
+  <div class="page" id="page-imams7">
+    <section>
+      <div class="sec-head">
+        <span class="tag">القسم الأول</span>
+        <h2>من هم القرّاء السبعة؟</h2>
+        <p>اضغط على كل بطاقة لتتعرّف على تلاميذه (الرواة) الذين نقلوا قراءته إلينا.</p>
+      </div>
+
+      <div class="imam-grid" id="imamGrid"></div>
+    </section>
+  </div>
+
+  <!-- ================= PAGE: IMAMS 10 ================= -->
+  <div class="page" id="page-imams10">
+    <section>
+      <div class="sec-head">
+        <span class="tag">معلومة إضافية</span>
+        <h2>القرّاء العشرة الكاملون</h2>
+        <p>بعد القرّاء السبعة المشهورين، أضاف العلماء ثلاثة أئمة آخرين، فصارت «القراءات العشر» المتواترة. تعرّف عليهم هنا!</p>
+      </div>
+
+      <div class="imam-grid" id="imamGrid10"></div>
+
+      <div class="intro-story" style="margin-top:26px;">
+        سُمّي الإمام الأخير «<b>خَلَف العاشر</b>» لأنه أكمل عدد القرّاء العشرة، وهو غير خَلَف الذي كان راويًا عن حمزة الكوفي، فانتبه للفرق بينهما! وكل هؤلاء الأئمة الثلاثة قراءاتهم صحيحة متواترة أيضًا، تمامًا كالقرّاء السبعة.
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= PAGE: EXAMPLES ================= -->
+  <div class="page" id="page-examples">
+    <section>
+      <div class="sec-head">
+        <span class="tag">القسم الثاني</span>
+        <h2>استمع وقارن بنفسك</h2>
+        <p>لكل مثال خطوتان: أولًا اضغط 🔊 لتسمع الكلمة، ثم اضغط «قارن القراءات» لتكتشف كيف قرأها الأئمة الآخرون — واستمع لكل قراءة أيضًا!</p>
+      </div>
+      <div id="examplesWrap"></div>
+    </section>
+  </div>
+
+  <!-- ================= PAGE: MAP ================= -->
+  <div class="page" id="page-map">
+    <section>
+      <div class="sec-head">
+        <span class="tag">القسم الثالث</span>
+        <h2>خريطة رحلة القرّاء</h2>
+        <p>القرّاء العشرة عاشوا في خمس مدن إسلامية مختلفة. اضغط على كل مدينة لتكتشف مَن مِن القرّاء عاش فيها.</p>
+      </div>
+
+      <div class="city-row" id="cityRow"></div>
+      <div class="city-detail" id="cityDetail">
+        <div class="city-detail-title">اختر مدينة من فوق 👆</div>
+        <div class="city-detail-hint">ستظهر هنا أسماء القرّاء الذين عاشوا في المدينة التي تختارها.</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= PAGE: GAME ================= -->
+  <div class="page" id="page-game">
+    <section>
+      <div class="sec-head">
+        <span class="tag">القسم الرابع</span>
+        <h2>لعبة المطابقة</h2>
+        <p>اضغط على اسم إمام من العمود الأيمن، ثم اضغط على اسم راويه الصحيح من العمود الأيسر لتطابق بينهما.</p>
+      </div>
+
+      <div class="game-progress" id="gameProgress">الأزواج الصحيحة: ٠ من ٧</div>
+      <div class="game-wrap">
+        <div class="game-col">
+          <div class="game-col-label">الإمام</div>
+          <div id="gameImamCol"></div>
+        </div>
+        <div class="game-col">
+          <div class="game-col-label">الراوي</div>
+          <div id="gameStudentCol"></div>
+        </div>
+      </div>
+      <div class="game-done" id="gameDone">🎉 أحسنت! لقد طابقت كل الأئمة برواتهم بنجاح!</div>
+      <button class="game-reset" id="gameReset">🔄 ابدأ اللعبة من جديد</button>
+    </section>
+  </div>
+
+  <!-- ================= PAGE: FAQ ================= -->
+  <div class="page" id="page-faq">
+    <section>
+      <div class="sec-head">
+        <span class="tag">أسئلة شائعة</span>
+        <h2>أسئلة يسألها الأطفال كثيرًا</h2>
+        <p>اضغط على أي سؤال لترى إجابته.</p>
+      </div>
+      <div class="faq-list" id="faqList"></div>
+    </section>
+  </div>
+
+  <!-- ================= PAGE: QUIZ ================= -->
+  <div class="page" id="page-quiz">
+    <section>
+      <div class="sec-head">
+        <span class="tag">القسم الخامس</span>
+        <h2>اختبر معلوماتك</h2>
+        <p>أسئلة بسيطة وممتعة لنرى كم تعلّمت!</p>
+      </div>
+      <div class="quiz-box" id="quizBox">
+        <div class="quiz-progress" id="quizProgress">السؤال 1 من 5</div>
+        <div class="quiz-q" id="quizQuestion"></div>
+        <div class="quiz-opts" id="quizOpts"></div>
+        <div class="quiz-feedback" id="quizFeedback"></div>
+        <button class="quiz-next" id="quizNext">السؤال التالي ←</button>
+        <div class="quiz-done" id="quizDone">
+          <div class="quiz-score">نتيجتك: <span id="scoreText"></span></div>
+          <div class="star-row" id="starRow"></div>
+          <button class="quiz-next" id="quizRestart" style="display:inline-block;">أعد المحاولة</button>
+          <br>
+          <button class="compare-btn" style="display:inline-flex;margin-top:14px;" onclick="goToPage('certificate')">احصل على شهادتك 🏅</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= PAGE: CERTIFICATE ================= -->
+  <div class="page" id="page-certificate">
+    <section>
+      <div class="sec-head">
+        <span class="tag">تهانينا</span>
+        <h2>شهادتي في رحلة القراءات</h2>
+        <p>اكتب اسمك، واحصل على شهادة تقدير جميلة يمكنك طباعتها!</p>
+      </div>
+
+      <div class="cert-form">
+        <input type="text" class="cert-input" id="certName" placeholder="اكتب اسمك هنا ✏️">
+        <button class="cert-btn" id="certGenerate">إنشاء شهادتي 🏅</button>
+      </div>
+
+      <div class="certificate" id="certificate">
+        <div class="cert-eyebrow">شهادة تقدير</div>
+        <h2>القُرّاء السبعة والعشرة</h2>
+        <div class="cert-name" id="certNameOut">— اسم الطالب —</div>
+        <div class="cert-desc">تمنح هذه الشهادة تقديرًا لإتمام رحلة تعلّم القراءات القرآنية للأطفال بنجاح واجتهاد.</div>
+        <div class="cert-score" id="certScoreOut"></div>
+        <div class="cert-date" id="certDateOut"></div>
+        <br>
+        <button class="print-btn" onclick="window.print()">🖨️ طباعة الشهادة</button>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+<p>🌙 أعضاء المجموعة :<p/>
+<p>ABDUR RAHMANIL HALIM BIN AZMULEY (1231743)   |   IKRAM FARHAN BIN SUKRI (1231732)   |   MUHAMMAD RIDHWAN BIN 'AZALLI (1231712)<p/>
+<p style="font-size:0.78rem; opacity:0.7; margin-top:10px;">🔈 The sounds on this site are just simple computer tones, not real music or recordings</p>
+</footer>
+</div>
+
+<script>
+/* ==================================================================
+   AUDIO ENGINE — generated tones only (no external audio files),
+   used for gentle background ambience + interaction sound effects.
+   Starts OFF by default; the user turns it on with the sound toggle.
+   ================================================================== */
+const AudioEngine = (function(){
+  let ctx = null;
+  let masterGain = null;
+  let musicOn = false;
+  let musicTimer = null;
+  const scale = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25]; // gentle pentatonic-ish notes
+
+  function getCtx(){
+    if(!ctx){
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if(!AC) return null;
+      ctx = new AC();
+      masterGain = ctx.createGain();
+      masterGain.gain.value = 0.5;
+      masterGain.connect(ctx.destination);
+    }
+    if(ctx.state === 'suspended'){ ctx.resume(); }
+    return ctx;
+  }
+
+  function tone(opts){
+    const c = getCtx();
+    if(!c) return;
+    const freq = opts.freq || 440;
+    const start = opts.start || 0;
+    const dur = opts.dur || 0.2;
+    const type = opts.type || 'sine';
+    const vol = opts.vol || 0.2;
+    const glideTo = opts.glideTo || null;
+    const osc = c.createOscillator();
+    const gain = c.createGain();
+    osc.type = type;
+    const t0 = c.currentTime + start;
+    osc.frequency.setValueAtTime(freq, t0);
+    if(glideTo){ osc.frequency.linearRampToValueAtTime(glideTo, t0 + dur); }
+    gain.gain.setValueAtTime(0.0001, t0);
+    gain.gain.linearRampToValueAtTime(vol, t0 + 0.025);
+    gain.gain.exponentialRampToValueAtTime(0.001, t0 + dur);
+    osc.connect(gain);
+    gain.connect(masterGain);
+    osc.start(t0);
+    osc.stop(t0 + dur + 0.05);
+  }
+
+  const sfx = {
+    click(){ tone({freq:720, dur:0.08, type:'sine', vol:0.14}); },
+    nav(){ tone({freq:500, dur:0.12, type:'sine', vol:0.14, glideTo:740}); },
+    flip(){ tone({freq:300, dur:0.1, type:'triangle', vol:0.14, glideTo:520}); },
+    open(){ tone({freq:420, dur:0.09, type:'sine', vol:0.12, glideTo:600}); },
+    correct(){ [523.25,659.25,783.99].forEach(function(f,i){ tone({freq:f, start:i*0.09, dur:0.22, type:'sine', vol:0.2}); }); },
+    wrong(){ tone({freq:220, dur:0.2, type:'sawtooth', vol:0.1, glideTo:150}); },
+    match(){ [659.25,987.77].forEach(function(f,i){ tone({freq:f, start:i*0.07, dur:0.18, type:'sine', vol:0.17}); }); },
+    fanfare(){ [523.25,659.25,783.99,1046.5].forEach(function(f,i){ tone({freq:f, start:i*0.13, dur:0.32, type:'sine', vol:0.2}); }); },
+  };
+
+  function scheduleMusic(){
+    if(!musicOn) return;
+    const pad = scale[Math.floor(Math.random()*scale.length)] / 2;
+    tone({freq:pad, dur:3.2, type:'sine', vol:0.045});
+    if(Math.random() < 0.65){
+      const pluck = scale[Math.floor(Math.random()*scale.length)];
+      tone({freq:pluck, start:0.5, dur:1.0, type:'triangle', vol:0.055});
+    }
+    musicTimer = setTimeout(scheduleMusic, 1800 + Math.random()*900);
+  }
+
+  function startMusic(){
+    if(musicOn) return;
+    if(!getCtx()) return;
+    musicOn = true;
+    scheduleMusic();
+  }
+  function stopMusic(){
+    musicOn = false;
+    if(musicTimer){ clearTimeout(musicTimer); musicTimer = null; }
+  }
+  function toggle(){
+    if(musicOn){ stopMusic(); } else { startMusic(); }
+    return musicOn;
+  }
+
+  return {
+    sfx: sfx,
+    toggle: toggle,
+    unlock: getCtx,
+    isOn: function(){ return musicOn; }
+  };
+})();
+
+/* Sound toggle button */
+const soundToggleBtn = document.getElementById('soundToggle');
+soundToggleBtn.addEventListener('click', () => {
+  const nowOn = AudioEngine.toggle();
+  soundToggleBtn.textContent = nowOn ? '🔊' : '🔈';
+  soundToggleBtn.classList.toggle('on', nowOn);
+  if(nowOn){ AudioEngine.sfx.click(); }
+});
+
+/* Play a click sound on every nav / button interaction, gracefully no-op if muted */
+function playSfx(name){
+  if(AudioEngine.isOn() && AudioEngine.sfx[name]){ AudioEngine.sfx[name](); }
+}
+
+/* ==================================================================
+   PAGE NAVIGATION
+   ================================================================== */
+const navBtns = document.querySelectorAll('.nav-btn');
+const navLinks = document.getElementById('navLinks');
+const burgerBtn = document.getElementById('burgerBtn');
+
+function closeBurgerMenu(){
+  navLinks.classList.remove('open');
+  burgerBtn.classList.remove('open');
+  burgerBtn.textContent = '☰';
+  burgerBtn.setAttribute('aria-expanded', 'false');
+}
+burgerBtn.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  burgerBtn.classList.toggle('open', isOpen);
+  burgerBtn.textContent = isOpen ? '✕' : '☰';
+  burgerBtn.setAttribute('aria-expanded', String(isOpen));
+  playSfx('click');
+});
+document.addEventListener('click', (e) => {
+  if(!navLinks.classList.contains('open')) return;
+  if(navLinks.contains(e.target) || burgerBtn.contains(e.target)) return;
+  closeBurgerMenu();
+});
+
+function goToPage(target){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const el = document.getElementById('page-' + target);
+  if(el){ el.classList.add('active'); }
+  navBtns.forEach(b => b.classList.toggle('active', b.dataset.target === target));
+  playSfx('nav');
+  window.scrollTo({top:0, behavior:'smooth'});
+  closeBurgerMenu();
+}
+navBtns.forEach(btn => {
+  btn.addEventListener('click', () => goToPage(btn.dataset.target));
+});
+document.getElementById('brandHome').addEventListener('click', () => goToPage('home'));
+goToPage('home');
+
+/* ---------------- DATA ---------------- */
+const imams7 = [
+  {num:"١", name:"نافع المدني", fullName:"نافع بن عبد الرحمن بن أبي نُعيم", death:"توفي سنة ١٦٩ هـ", city:"المدينة المنوّرة", students:["قالون","ورش"], fact:"كان إمام أهل المدينة في القراءة، وتعلّم منه مالك بن أنس صاحب المذهب المالكي."},
+  {num:"٢", name:"ابن كثير المكي", fullName:"عبد الله بن كثير الدَّاري", death:"توفي سنة ١٢٠ هـ", city:"مكة المكرّمة", students:["البزّي","قُنبل"], fact:"كان إمام القراءة في مكة المكرّمة، وأخذ القراءة عن عدد من كبار التابعين."},
+  {num:"٣", name:"أبو عمرو البصري", fullName:"زَبّان بن العلاء المازني", death:"توفي سنة ١٥٤ هـ", city:"البصرة", students:["الدُّوري","السُّوسي"], fact:"كان عالمًا كبيرًا في اللغة العربية والنحو، إلى جانب إمامته في القراءة."},
+  {num:"٤", name:"ابن عامر الشامي", fullName:"عبد الله بن عامر اليَحصُبي", death:"توفي سنة ١١٨ هـ", city:"دمشق", students:["هشام","ابن ذَكوان"], fact:"تولّى القضاء في دمشق، وهو أقدم القرّاء السبعة وفاةً."},
+  {num:"٥", name:"عاصم الكوفي", fullName:"عاصم بن أبي النَّجود", death:"توفي سنة ١٢٧ هـ", city:"الكوفة", students:["شعبة","حفص"], fact:"قراءته برواية حفص هي الأكثر انتشارًا في العالم الإسلامي اليوم."},
+  {num:"٦", name:"حمزة الكوفي", fullName:"حمزة بن حبيب الزَّيّات", death:"توفي سنة ١٥٦ هـ", city:"الكوفة", students:["خَلَف","خَلاّد"], fact:"اشتُهر بشدّة إتقانه وورعه، وكان يعمل بالتجارة في الزيت (الزَّيّات)."},
+  {num:"٧", name:"الكسائي الكوفي", fullName:"علي بن حمزة الكِسائي", death:"توفي سنة ١٨٩ هـ", city:"الكوفة", students:["أبو الحارث","الدُّوري"], fact:"كان معلّم أبناء الخليفة هارون الرشيد، وإمامًا كبيرًا في النحو أيضًا."},
+];
+
+const imams10 = [
+  {num:"٨", name:"أبو جعفر المدني", fullName:"يزيد بن القعقاع المخزومي", death:"توفي سنة ١٣٠ هـ", city:"المدينة المنوّرة", students:["ابن وردان","ابن جمّاز"], fact:"من كبار التابعين، وكان من شيوخ الإمام نافع نفسه."},
+  {num:"٩", name:"يعقوب الحضرمي", fullName:"يعقوب بن إسحاق الحضرمي", death:"توفي سنة ٢٠٥ هـ", city:"البصرة", students:["رُوَيس","رَوْح"], fact:"كان إمام أهل البصرة في القراءة في زمانه، بعد أبي عمرو البصري."},
+  {num:"١٠", name:"خَلَف العاشر", fullName:"خَلَف بن هشام البزّار", death:"توفي سنة ٢٢٩ هـ", city:"الكوفة", students:["إسحاق","إدريس"], fact:"له قراءة خاصة به عدّها العلماء العاشرة، وهو غير خَلَف راوي حمزة."},
+];
+
+const allImams = imams7.concat(imams10);
+
+const examples = [
+  {
+    ref:"سورة الفاتحة — الآية ٤",
+    word:"مَالِكِ يَوْمِ الدِّينِ",
+    variants:[
+      {word:"مَالِكِ يَوْمِ الدِّينِ", who:"برواية حفص عن عاصم"},
+      {word:"مَلِكِ يَوْمِ الدِّينِ", who:"برواية قالون عن نافع"},
+    ]
+  },
+  {
+    ref:"سورة البقرة — الآية ٩",
+    word:"وَمَا يُخَادِعُونَ إِلَّا أَنفُسَهُم",
+    variants:[
+      {word:"وَمَا يُخَادِعُونَ إِلَّا أَنفُسَهُم", who:"قراءة الجمهور (حفص عن عاصم)"},
+      {word:"وَمَا يَخْدَعُونَ إِلَّا أَنفُسَهُم", who:"قراءة نافع في رواية"},
+    ]
+  },
+  {
+    ref:"سورة الفاتحة — الآية ٦",
+    word:"اهدِنَا الصِّرَاطَ المُستَقِيمَ",
+    variants:[
+      {word:"اهدِنَا الصِّرَاطَ المُستَقِيمَ", who:"بالصاد — أغلب القرّاء"},
+      {word:"اهدِنَا السِّرَاطَ المُستَقِيمَ", who:"بالسين — قراءة حمزة"},
+    ]
+  },
+];
+
+const cities = [
+  {icon:"🕌", name:"المدينة المنوّرة", imams:["نافع المدني","أبو جعفر المدني"]},
+  {icon:"🕋", name:"مكة المكرّمة", imams:["ابن كثير المكي"]},
+  {icon:"🌴", name:"البصرة", imams:["أبو عمرو البصري","يعقوب الحضرمي"]},
+  {icon:"🏛️", name:"دمشق", imams:["ابن عامر الشامي"]},
+  {icon:"📜", name:"الكوفة", imams:["عاصم الكوفي","حمزة الكوفي","الكسائي الكوفي","خَلَف العاشر"]},
+];
+
+const faqs = [
+  {
+    q:"ما معنى «قراءة»؟",
+    a:"القراءة هي طريقة صحيحة وموثّقة لنطق آيات القرآن الكريم، نُقلت بسندٍ متّصل عن النبيّ ﷺ. وليست كل قراءة يقرأها أي شخص، بل هي طرق معروفة تعلّمها الأئمة وأجازوا تلاميذهم بها."
+  },
+  {
+    q:"ما معنى «راوي»؟",
+    a:"الراوي هو التلميذ الذي أخذ القراءة عن الإمام مباشرة، وحفظها بدقّة، ثم علّمها لتلاميذه من بعده. ولهذا نقول مثلًا «قراءة حفص عن عاصم»، أي أنّ حفصًا روى هذه القراءة عن أستاذه عاصم."
+  },
+  {
+    q:"هل تغيّر القراءات معنى القرآن؟",
+    a:"لا، فكل القراءات صحيحة ومتواترة (منقولة بسند قوي وموثوق)، وهي زيادة في المعنى وتيسير في اللفظ، وليست خطأً أو اختلافًا يُفسد المعنى. بل تزيدنا فهمًا لعظمة القرآن ودقّة حفظه."
+  },
+  {
+    q:"أيّ قراءة نقرأ بها اليوم؟",
+    a:"أكثر المصاحف المطبوعة في العالم اليوم تعتمد على «قراءة حفص عن عاصم»، وهي القراءة المنتشرة في معظم الدول الإسلامية. لكن قراءة «ورش عن نافع» منتشرة أيضًا في بعض دول شمال إفريقيا."
+  },
+  {
+    q:"ما الفرق بين القراءات السبع والقراءات العشر؟",
+    a:"القراءات السبع هي أول سبعة أئمة جمعهم العلماء واشتهرت قراءاتهم. ثم أضاف العلماء لاحقًا ثلاثة أئمة آخرين متواترين أيضًا، فصار المجموع عشرة، وتسمّى «القراءات العشر»."
+  },
+];
+
+const quizQuestions = [
+  {q:"مَن هو الإمام الذي كان من أهل المدينة المنوّرة؟", opts:["نافع المدني","الكسائي الكوفي","ابن عامر الشامي"], correct:0},
+  {q:"مَن هما راويا الإمام عاصم الكوفي؟", opts:["قالون وورش","شعبة وحفص","هشام وابن ذكوان"], correct:1},
+  {q:"إلى أي مدينة يُنسب الإمام ابن كثير؟", opts:["البصرة","دمشق","مكة المكرّمة"], correct:2},
+  {q:"في آية «مالك يوم الدين»، أي كلمة يقرأ بها حفص عن عاصم؟", opts:["مَلِكِ (بدون ألف)","مَالِكِ (بألف)","لا فرق بينهما"], correct:1},
+  {q:"كم عدد القرّاء السبعة المشهورين؟", opts:["خمسة","سبعة","عشرة"], correct:1},
+  {q:"من هو القارئ الذي يُلقّب بـ«العاشر»؟", opts:["أبو جعفر المدني","خَلَف العاشر","يعقوب الحضرمي"], correct:1},
+  {q:"أيّ مدينة عاش فيها أكبر عدد من القرّاء العشرة؟", opts:["دمشق","الكوفة","مكة المكرّمة"], correct:1},
+  {q:"من هو أحد راويَي الإمام يعقوب الحضرمي؟", opts:["رُوَيس","قالون","هشام"], correct:0},
+];
+
+/* ---------------- RENDER IMAM GRIDS ---------------- */
+function renderImamGrid(containerId, list){
+  const grid = document.getElementById(containerId);
+  list.forEach(im => {
+    const card = document.createElement('div');
+    card.className = 'flip-card';
+    card.innerHTML = `
+      <div class="flip-inner">
+        <div class="face front">
+          <div class="num">القارئ ${im.num}</div>
+          <div class="name">${im.name}</div>
+          <div class="city">${im.city}</div>
+          <div class="hint">Click to flip ↺</div>
+        </div>
+        <div class="face back">
+          <div class="name">${im.name}</div>
+          <div class="bio-line">${im.fullName} · ${im.death}</div>
+          <div class="students-label">الرّاويان المشهوران عنه:</div>
+          <div class="students"><b>${im.students[0]}</b> و <b>${im.students[1]}</b></div>
+          <div class="fact-line">${im.fact}</div>
+        </div>
+      </div>`;
+    card.addEventListener('click', () => {
+      card.classList.toggle('flipped');
+      playSfx('flip');
+    });
+    grid.appendChild(card);
+  });
+}
+renderImamGrid('imamGrid', imams7);
+renderImamGrid('imamGrid10', imams10);
+
+/* ---------------- TEXT-TO-SPEECH HELPER ---------------- */
+let arabicVoice = null;
+function pickArabicVoice(){
+  if(!('speechSynthesis' in window)) return;
+  const voices = window.speechSynthesis.getVoices();
+  arabicVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('ar')) || null;
+}
+if('speechSynthesis' in window){
+  pickArabicVoice();
+  window.speechSynthesis.onvoiceschanged = pickArabicVoice;
+}
+function speakArabic(text, btn){
+  if(!('speechSynthesis' in window)){
+    if(btn){ btn.textContent = '🔇 غير مدعوم في هذا المتصفح'; }
+    return;
+  }
+  window.speechSynthesis.cancel();
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = 'ar-SA';
+  if(arabicVoice) utter.voice = arabicVoice;
+  utter.rate = 0.75;
+  if(btn){
+    btn.classList.add('playing');
+    utter.onend = () => btn.classList.remove('playing');
+    utter.onerror = () => btn.classList.remove('playing');
+  }
+  window.speechSynthesis.speak(utter);
+}
+
+/* ---------------- RENDER EXAMPLES ---------------- */
+const examplesWrap = document.getElementById('examplesWrap');
+examples.forEach(ex => {
+  const card = document.createElement('div');
+  card.className = 'example-card';
+  card.innerHTML = `
+    <div class="example-top"><span class="verse-ref">${ex.ref}</span></div>
+    <div class="example-steps">
+      <span class="step-badge active">١. استمع للآية</span>
+      <span class="step-badge">٢. قارن القراءات</span>
+    </div>
+    <div class="example-word">${ex.word}</div>
+    <button class="audio-btn main-audio">🔊 استمع للآية</button>
+    <button class="compare-btn">قارن القراءات 🔍</button>
+    <div class="variants">
+      ${ex.variants.map(v => `
+        <div class="variant">
+          <div class="v-word">${v.word}</div>
+          <div class="v-who">${v.who}</div>
+          <button class="audio-btn v-audio">🔊 استمع</button>
+        </div>`).join('')}
+    </div>
+    <div class="audio-note">🔊 صوت آلي تقريبي لمساعدة الطفل على التمييز بين الألفاظ، وليس تسجيلًا لقارئ معتمد.</div>
+  `;
+  card.querySelector('.main-audio').addEventListener('click', (e) => speakArabic(ex.word, e.currentTarget));
+  card.querySelector('.compare-btn').addEventListener('click', (e) => {
+    card.classList.add('open');
+    card.querySelectorAll('.step-badge')[1].classList.add('active');
+    e.currentTarget.disabled = true;
+    playSfx('open');
+  });
+  card.querySelectorAll('.v-audio').forEach((btn, i) => {
+    btn.addEventListener('click', (e) => speakArabic(ex.variants[i].word, e.currentTarget));
+  });
+  examplesWrap.appendChild(card);
+});
+
+/* ---------------- RENDER MAP PAGE ---------------- */
+const cityRow = document.getElementById('cityRow');
+const cityDetail = document.getElementById('cityDetail');
+cities.forEach((c, idx) => {
+  const stop = document.createElement('div');
+  stop.className = 'city-stop';
+  stop.innerHTML = `
+    <div class="city-icon">${c.icon}</div>
+    <div class="city-name">${c.name}</div>
+    <div class="city-count">${c.imams.length} من القرّاء</div>
+  `;
+  stop.addEventListener('click', () => {
+    document.querySelectorAll('.city-stop').forEach(s => s.classList.remove('active'));
+    stop.classList.add('active');
+    cityDetail.innerHTML = `
+      <div class="city-detail-title">${c.icon} ${c.name}</div>
+      ${c.imams.map(n => `<span class="city-imam-chip">${n}</span>`).join('')}
+    `;
+    playSfx('nav');
+  });
+  cityRow.appendChild(stop);
+});
+
+/* ---------------- TIMELINE POPOUT DETAILS ---------------- */
+const timelineDetails = [
+  {
+    title:"النبيّ ﷺ",
+    text:"كان جبريل عليه السلام يعرض القرآن على النبيّ ﷺ في كل شهر رمضان، وفي آخر رمضان من حياته عرضه عليه مرّتين، فكانت تلك بداية ضبط القراءة الصحيحة."
+  },
+  {
+    title:"الصحابة",
+    text:"من أشهر الصحابة الذين حفظوا القرآن وأتقنوه: أُبيّ بن كعب، وعبد الله بن مسعود، وزيد بن ثابت رضي الله عنهم، وقد تعلّم منهم كثير من التابعين القراءة مباشرة."
+  },
+  {
+    title:"التابعون",
+    text:"تفرّق التابعون في الأمصار الإسلامية المختلفة كمكة والمدينة والكوفة والبصرة والشام، وحمل كل واحد منهم ما تعلّمه من الصحابة إلى مدينته."
+  },
+  {
+    title:"الأئمة العشرة",
+    text:"اشتهر في كل مدينة إمام أو أكثر بضبطه وإتقانه لقراءة القرآن، حتى صار الناس يقصدونه من كل مكان لتعلّم القراءة الصحيحة منه."
+  },
+  {
+    title:"الرواة",
+    text:"لكل إمام راويان مشهوران على الأقل، وهما اللذان دوّنا قراءته بدقّة ونقلاها إلى تلاميذهما، حتى وصلت إلينا اليوم كما كانت."
+  },
+];
+
+const timelineSteps = document.querySelectorAll('.t-step');
+const timelineDetailEl = document.getElementById('timelineDetail');
+timelineSteps.forEach((step, i) => {
+  step.addEventListener('click', () => {
+    timelineSteps.forEach(s => s.classList.remove('active'));
+    step.classList.add('active');
+    const d = timelineDetails[i];
+    timelineDetailEl.innerHTML = `
+      <div class="timeline-detail-title">${d.title}</div>
+      <div class="timeline-detail-text">${d.text}</div>
+    `;
+    playSfx('open');
+  });
+});
+
+/* ---------------- RENDER FAQ ---------------- */
+const faqList = document.getElementById('faqList');
+faqs.forEach(item => {
+  const el = document.createElement('div');
+  el.className = 'faq-item';
+  el.innerHTML = `
+    <button class="faq-q"><span>${item.q}</span><span class="arrow">⌄</span></button>
+    <div class="faq-a">${item.a}</div>
+  `;
+  el.querySelector('.faq-q').addEventListener('click', () => {
+    el.classList.toggle('open');
+    playSfx('open');
+  });
+  faqList.appendChild(el);
+});
+
+/* ---------------- MATCHING GAME ---------------- */
+const gameImamCol = document.getElementById('gameImamCol');
+const gameStudentCol = document.getElementById('gameStudentCol');
+const gameProgress = document.getElementById('gameProgress');
+const gameDone = document.getElementById('gameDone');
+const gameResetBtn = document.getElementById('gameReset');
+
+const gamePairs = imams7.map(im => ({ imam: im.name, student: im.students[0] }));
+let gameSelectedImam = null;
+let gameMatchedCount = 0;
+
+function arToNum(n){
+  const map = {0:'٠',1:'١',2:'٢',3:'٣',4:'٤',5:'٥',6:'٦',7:'٧',8:'٨',9:'٩'};
+  return String(n).split('').map(d => map[d] !== undefined ? map[d] : d).join('');
+}
+
+function buildGame(){
+  gameImamCol.innerHTML = '';
+  gameStudentCol.innerHTML = '';
+  gameSelectedImam = null;
+  gameMatchedCount = 0;
+  gameDone.classList.remove('show');
+  gameProgress.textContent = `الأزواج الصحيحة: ${arToNum(0)} من ${arToNum(gamePairs.length)}`;
+
+  gamePairs.forEach(p => {
+    const btn = document.createElement('div');
+    btn.className = 'game-item imam-item';
+    btn.textContent = p.imam;
+    btn.dataset.imam = p.imam;
+    btn.addEventListener('click', () => onImamClick(btn, p.imam));
+    gameImamCol.appendChild(btn);
+  });
+
+  const shuffledStudents = gamePairs.map(p => p.student).sort(() => Math.random() - 0.5);
+  shuffledStudents.forEach(s => {
+    const btn = document.createElement('div');
+    btn.className = 'game-item';
+    btn.textContent = s;
+    btn.dataset.student = s;
+    btn.addEventListener('click', () => onStudentClick(btn, s));
+    gameStudentCol.appendChild(btn);
+  });
+}
+
+function onImamClick(el, imamName){
+  if(el.classList.contains('matched')) return;
+  document.querySelectorAll('#gameImamCol .game-item').forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected');
+  gameSelectedImam = imamName;
+  playSfx('click');
+}
+
+function onStudentClick(el, studentName){
+  if(el.classList.contains('matched') || !gameSelectedImam) return;
+  const pair = gamePairs.find(p => p.imam === gameSelectedImam);
+  const imamEl = document.querySelector(`#gameImamCol .game-item[data-imam="${CSS.escape(gameSelectedImam)}"]`);
+  if(pair && pair.student === studentName){
+    el.classList.add('matched');
+    el.classList.remove('selected');
+    if(imamEl){ imamEl.classList.add('matched'); imamEl.classList.remove('selected'); }
+    gameMatchedCount++;
+    gameProgress.textContent = `الأزواج الصحيحة: ${arToNum(gameMatchedCount)} من ${arToNum(gamePairs.length)}`;
+    playSfx('match');
+    gameSelectedImam = null;
+    if(gameMatchedCount === gamePairs.length){
+      gameDone.classList.add('show');
+      playSfx('fanfare');
+    }
+  } else {
+    el.classList.add('shake');
+    if(imamEl){ imamEl.classList.add('shake'); }
+    playSfx('wrong');
+    setTimeout(() => {
+      el.classList.remove('shake');
+      if(imamEl){ imamEl.classList.remove('shake', 'selected'); }
+    }, 350);
+    gameSelectedImam = null;
+  }
+}
+
+gameResetBtn.addEventListener('click', () => { buildGame(); playSfx('click'); });
+buildGame();
+
+/* ---------------- QUIZ LOGIC ---------------- */
+let qIndex = 0, score = 0;
+window.quizCompleted = false;
+window.lastScore = 0;
+window.lastTotal = quizQuestions.length;
+
+const quizQuestion = document.getElementById('quizQuestion');
+const quizOpts = document.getElementById('quizOpts');
+const quizFeedback = document.getElementById('quizFeedback');
+const quizNext = document.getElementById('quizNext');
+const quizProgress = document.getElementById('quizProgress');
+const quizBox = document.getElementById('quizBox');
+const quizDone = document.getElementById('quizDone');
+
+function renderQuestion(){
+  const item = quizQuestions[qIndex];
+  quizProgress.textContent = `السؤال ${qIndex+1} من ${quizQuestions.length}`;
+  quizQuestion.textContent = item.q;
+  quizFeedback.textContent = '';
+  quizNext.style.display = 'none';
+  quizOpts.innerHTML = '';
+  item.opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn';
+    btn.textContent = opt;
+    btn.addEventListener('click', () => selectAnswer(i, btn));
+    quizOpts.appendChild(btn);
+  });
+}
+
+function selectAnswer(i, btn){
+  const item = quizQuestions[qIndex];
+  const allBtns = quizOpts.querySelectorAll('.opt-btn');
+  allBtns.forEach(b => b.disabled = true);
+  if(i === item.correct){
+    btn.classList.add('correct');
+    quizFeedback.textContent = 'أحسنت! إجابة صحيحة 🌟';
+    quizFeedback.style.color = '#1e5c40';
+    score++;
+    playSfx('correct');
+  } else {
+    btn.classList.add('wrong');
+    allBtns[item.correct].classList.add('correct');
+    quizFeedback.textContent = 'إجابة قريبة، حاول تذكّر الدرس مرة أخرى 💛';
+    quizFeedback.style.color = '#8a3320';
+    playSfx('wrong');
+  }
+  quizNext.style.display = 'inline-block';
+}
+
+quizNext.addEventListener('click', () => {
+  qIndex++;
+  if(qIndex < quizQuestions.length){
+    renderQuestion();
+  } else {
+    finishQuiz();
+  }
+});
+
+function finishQuiz(){
+  quizProgress.style.display='none';
+  quizQuestion.style.display='none';
+  quizOpts.style.display='none';
+  quizFeedback.style.display='none';
+  quizNext.style.display='none';
+  quizDone.style.display='block';
+  document.getElementById('scoreText').textContent = `${score} من ${quizQuestions.length}`;
+  const stars = Math.round((score/quizQuestions.length)*5);
+  document.getElementById('starRow').textContent = '⭐'.repeat(Math.max(stars,1)) + '☆'.repeat(5-Math.max(stars,1));
+  window.quizCompleted = true;
+  window.lastScore = score;
+  window.lastTotal = quizQuestions.length;
+  playSfx('fanfare');
+}
+
+document.getElementById('quizRestart').addEventListener('click', () => {
+  qIndex = 0; score = 0;
+  quizProgress.style.display='block';
+  quizQuestion.style.display='block';
+  quizOpts.style.display='grid';
+  quizFeedback.style.display='block';
+  quizDone.style.display='none';
+  renderQuestion();
+  playSfx('click');
+});
+
+renderQuestion();
+
+/* ---------------- CERTIFICATE ---------------- */
+const certNameInput = document.getElementById('certName');
+const certGenerateBtn = document.getElementById('certGenerate');
+const certificateEl = document.getElementById('certificate');
+const certNameOut = document.getElementById('certNameOut');
+const certScoreOut = document.getElementById('certScoreOut');
+const certDateOut = document.getElementById('certDateOut');
+
+certGenerateBtn.addEventListener('click', () => {
+  const name = certNameInput.value.trim();
+  if(!name){
+    certNameInput.focus();
+    playSfx('wrong');
+    return;
+  }
+  certNameOut.textContent = name;
+  if(window.quizCompleted){
+    certScoreOut.textContent = `نتيجة الاختبار: ${window.lastScore} من ${window.lastTotal} 🌟`;
+  } else {
+    certScoreOut.textContent = 'أكمل صفحة «الاختبار» لعرض نتيجتك هنا في المرة القادمة 💛';
+  }
+  let dateStr;
+  try{ dateStr = new Date().toLocaleDateString('ar'); }
+  catch(e){ dateStr = new Date().toLocaleDateString(); }
+  certDateOut.textContent = dateStr;
+  certificateEl.classList.add('show');
+  playSfx('fanfare');
+  certificateEl.scrollIntoView({behavior:'smooth', block:'center'});
+});
+</script>
+</body>
+</html>
