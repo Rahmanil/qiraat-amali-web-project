@@ -1,8 +1,8 @@
 # 📖 القراءات السبع — رحلة للأطفال (Qiraat Kids Web)
 
-An interactive single-page web application (SPA) designed to introduce children to the science of Quranic Qiraat (The Seven & Ten Qiraat) through engaging visuals and interactive learning activities.
+An interactive single-page web application (SPA) designed to introduce children to the science of Quranic Qiraat (The Seven & Ten Qiraat) through engaging visuals and interactive learning activities. Fully in arabic language
 
-Developed for the course **QIRAAT AMALI II (QQQ3163)**.
+Developed for the course **QIRAAT AMALI II (QQQ3163)**. 
 
 ---
 
@@ -78,3 +78,4 @@ This is a **zero-dependency, static client-side project**. No backend server or 
 4. Click the speaker icon (🔈 / 🔊) in the navigation bar to toggle interaction audio effects.
 
 ---
+## Yaa Fully Ai
