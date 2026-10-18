@@ -1,1 +1,1 @@
-# qiraatkidsweb
+# qiraat-amali-web-project
