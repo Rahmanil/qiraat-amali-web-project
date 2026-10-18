@@ -14,7 +14,8 @@ Developed for the course **QIRAAT AMALI II (QQQ3163)**.
 
 | Listen & Compare Audio | Quiz & Certificate Generator |
 | :---: | :---: |
-| <img width="1893" height="939" alt="image" src="https://github.com/user-attachments/assets/08907fd8-a13d-43cd-872d-0e1df2a64930" /> | <img width="1889" height="939" alt="image" src="https://github.com/user-attachments/assets/481b737a-0bd6-47db-a2f4-f7642bc26b31" /> |
+| <img width="1893" height="939" alt="image" src="https://github.com/user-attachments/assets/08907fd8-a13d-43cd-872d-0e1df2a64930" /> | <img width="1889" height="938" alt="image" src="https://github.com/user-attachments/assets/fb8fcbb2-14aa-427b-830e-e17032aa6122" />
+|
 
 ---
 
