@@ -1,6 +1,3 @@
-# qiraat-amali-web-project
-Here is the complete **`README.md`** text in English, structured with screenshot placeholders and the AI declaration, ready to copy and paste into your GitHub repository:
-
 ---
 
 ```markdown
