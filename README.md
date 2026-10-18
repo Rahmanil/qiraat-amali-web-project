@@ -1,6 +1,4 @@
----
 
-```markdown
 # 📖 القراءات السبع — رحلة للأطفال (Qiraat Kids Web)
 
 An interactive single-page web application (SPA) designed to introduce children to the science of Quranic Qiraat (The Seven & Ten Qiraat) through engaging visuals and interactive learning activities[cite: 1].
@@ -18,11 +16,6 @@ Developed for the course **QIRAAT AMALI II (QQQ3163)**[cite: 1].
 | Listen & Compare Audio | Quiz & Certificate Generator |
 | :---: | :---: |
 | ![Compare Recitations](screenshot-examples.png) | ![Quiz & Certificate](screenshot-quiz.png) |
-
-> 💡 **How to add your actual screenshots on GitHub:**
-> 1. Take screenshots of your web app pages.
-> 2. Open `README.md` on GitHub and click the **Pencil (Edit)** icon.
-> 3. Highlight each placeholder (e.g. `screenshot-home.png`) and simply **drag and drop** your image directly into the text editor. GitHub will automatically upload and generate the correct link.
 
 ---
 
