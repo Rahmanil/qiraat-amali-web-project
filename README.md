@@ -3,7 +3,7 @@
 
 An interactive single-page web application (SPA) designed to introduce children to the science of Quranic Qiraat (The Seven & Ten Qiraat) through engaging visuals and interactive learning activities[cite: 1].
 
-Developed for the course **QIRAAT AMALI II (QQQ3163)**[cite: 1].
+Developed for the course **QIRAAT AMALI II (QQQ3163)**.
 
 ---
 
@@ -11,11 +11,15 @@ Developed for the course **QIRAAT AMALI II (QQQ3163)**[cite: 1].
 
 | Home & Historical Timeline | Interactive Imam Flip Cards |
 | :---: | :---: |
-| ![Home Page](screenshot-home.png) | ![Imam Cards](screenshot-imams.png) |
+| <img width="1886" height="939" alt="image" src="https://github.com/user-attachments/assets/c7353b06-1a63-4a0a-b972-3de79261d6e8" />
+ | <img width="1893" height="944" alt="image" src="https://github.com/user-attachments/assets/f96bcf8a-5445-4441-97f1-ea4ec7b29393" />
+ |
 
 | Listen & Compare Audio | Quiz & Certificate Generator |
 | :---: | :---: |
-| ![Compare Recitations](screenshot-examples.png) | ![Quiz & Certificate](screenshot-quiz.png) |
+| <img width="1893" height="939" alt="image" src="https://github.com/user-attachments/assets/08907fd8-a13d-43cd-872d-0e1df2a64930" />
+ | <img width="1889" height="939" alt="image" src="https://github.com/user-attachments/assets/481b737a-0bd6-47db-a2f4-f7642bc26b31" />
+ |
 
 ---
 
